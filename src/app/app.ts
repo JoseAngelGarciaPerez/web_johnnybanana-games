@@ -14,4 +14,5 @@ export class App {
   protected readonly title = signal('johnnybananagames-web');
   protected readonly page_name = "JohnnyBanana Games";
   protected readonly creator = "José Ángel García Pérez";
+
 }
