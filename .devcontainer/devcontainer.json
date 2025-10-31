@@ -1,0 +1,71 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	"dockerFile": "Dockerfile",
+	"runArgs": [
+		"--init",
+		"--name",
+		"devcontainer-johnnyBanana-games-web",
+		// Map host.docker.internal→host-gateway automatically…
+		"--add-host=host.docker.internal:host-gateway",
+		// …and ALSO override "localhost" to point at that gateway:
+		"--add-host=localhost:host-gateway",
+		"--env=HOST_PROJECT_PATH=${localWorkspaceFolder}"
+	],
+	"build": {
+		"args": {
+			"HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	},
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"DavidAnson.vscode-markdownlint",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"ms-azuretools.vscode-docker",
+				"vscode-icons-team.vscode-icons",
+				"shakram02.bash-beautify",
+				"SeyyedKhandon.firacode",
+				"dracula-theme.theme-dracula",
+				"github.vscode-github-actions",
+				"redhat.vscode-yaml",
+				"esbenp.prettier-vscode",
+				"tal7aouy.icons",
+				"Angular.ng-template"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"icon": "terminal-bash",
+						"path": "bash"
+					},
+					"zsh": {
+						"icon": "terminal-bash",
+						"path": "zsh"
+					}
+				},
+				"files.autoSave": "onFocusChange",
+				"files.exclude": {
+					"**/*.egg-info": true,
+					"**/.coverage": true,
+					"**/.git": true,
+					"**/.idea": true
+				},
+				"files.insertFinalNewline": true,
+				"files.trimTrailingWhitespace": true,
+				"remote.autoForwardPorts": false,
+				"editor.formatOnSave": true
+			}
+		}
+	}
+}
