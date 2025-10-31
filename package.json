@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --verbose --host 0.0.0.0 --port 4200",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:johnnybananagames-web": "node dist/johnnybananagames-web/server/server.mjs"
