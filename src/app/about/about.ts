@@ -4,8 +4,7 @@ import { Footer } from '../footer/footer';
 @Component({
   selector: 'app-about',
   imports: [Footer],
-  templateUrl: './about.html',
-  styleUrl: './about.css'
+  templateUrl: './about.html'
 })
 export class About {
 
