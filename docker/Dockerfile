@@ -8,6 +8,7 @@ RUN npm install -g npm@10.9.3
 RUN npm install -g @angular/cli
 
 WORKDIR /workspaces
+RUN npm install
 COPY . .
 RUN npm run build
 
