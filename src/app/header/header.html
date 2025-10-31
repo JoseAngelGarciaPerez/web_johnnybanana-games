@@ -12,21 +12,25 @@
           <span class="sr-only">Open main menu</span>
 
           <!-- Icono hamburguesa -->
-          <svg *ngIf="!mobileMenuOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
-            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-
-          <!-- Icono de cerrar -->
-          <svg *ngIf="mobileMenuOpen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
-            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+           @if (!mobileMenuOpen) 
+           {
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+               <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>  
+            }@else
+            {
+              <!-- Icono de cerrar --> 
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            }
         </button>
       </div>
 
       <!-- Logo + Nav en escritorio -->
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex shrink-0 items-center">
-          <img src="JohnnyBanana.png" alt="JohnnyBanana Games" class="h-8 w-auto" />
+          <img src="assets/static/JohnnyBanana.png" alt="JohnnyBanana Games" class="h-8 w-auto" />
         </div>
 
         <div class="hidden sm:ml-6 sm:block">
@@ -40,10 +44,14 @@
     </div>
   </div>
 
-  <!-- MENU MÓVIL con *ngIf -->
-  <div *ngIf="mobileMenuOpen" class="sm:hidden px-2 pt-2 pb-3 space-y-1 bg-yellow-900/60">
-    <a routerLink="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
-    <a routerLink="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
-    <a routerLink="/projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-  </div>
+  <!-- MENU MÓVIL-->
+   @if (mobileMenuOpen) 
+   {
+    <div class="sm:hidden px-2 pt-2 pb-3 space-y-1 bg-yellow-900/60">
+      <a routerLink="/" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
+      <a routerLink="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
+      <a routerLink="/projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
+    </div>
+   }
+
 </nav>
